@@ -1,0 +1,2 @@
+# scratchpad
+random code snippets
