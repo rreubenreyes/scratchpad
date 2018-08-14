@@ -5,7 +5,7 @@ function print(...args) {
 	}
 	const strings = args[0].slice(0)
 	const objects = args.slice(1)
-	if (objects.length > strings.length) {
+	if (strings.length < objects.length) {
 		while (strings.length - objects.length) objects.push(null)
 	}
 
