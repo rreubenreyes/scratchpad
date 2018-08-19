@@ -1,8 +1,8 @@
 function print(...args) {
 	const strings = args[0].slice(0)
 	const objects = args.slice(1)
-	if (strings.length < objects.length) {
-		while (strings.length - objects.length) objects.push(null)
+	if (objects.length > strings.length) {
+		while (objects.length - strings.length) strings.push(null)
 	}
 
 	const output = []
