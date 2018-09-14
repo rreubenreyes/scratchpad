@@ -1,20 +1,60 @@
-require("./helpers.js");
+module.exports = (() => {
+  Array.fromRange = function fromRange(lower, upper) {
+    return Array.from(Array(upper - lower).keys()).map(key => key + lower);
+  };
+  Array.prototype.instancesOf = function instancesOf(member) {
+    var deepEqual = function(a, b) {
+      if (a === b) {
+        return true;
+      } else if (
+        typeof a == "object" &&
+        a != null &&
+        (typeof b == "object" && b != null)
+      ) {
+        if (Object.keys(a).length != Object.keys(b).length) return false;
 
-var arr = Array.fromRange(1, 5);
-console.log("var arr = Array.fromRange(1, 5) // output:", arr);
-console.log("arr.instancesOf(2) // output:", arr.instancesOf(2));
-console.log(
-  "arr.append(10) (pure function, does not mutate source) // output:",
-  arr.append(6)
-);
-console.log(
-  "arr.extend(10) (impure function, does mutate source)\n\t/* output:",
-  arr.extend(6),
-  "\n\t * original array:",
-  arr,
-  "\n\t */"
-);
-console.log("arr.rotateLeft() // output:", arr.rotateLeft());
-console.log("arr.rotateLeft(2) // output:", arr.rotateLeft(2));
-console.log("arr.rotateRight() // output:", arr.rotateRight());
-console.log("arr.rotateRight(5) // output:", arr.rotateRight(5));
+        for (var prop in a) {
+          if (b.hasOwnProperty(prop)) {
+            if (!deepEqual(a[prop], b[prop])) return false;
+          } else return false;
+        }
+
+        return true;
+      } else return false;
+    };
+    return this.filter(element => deepEqual(element, member)).length;
+  };
+
+  Array.prototype.append = function append() {
+    var arr = Array.from(this);
+    for (member of arguments) {
+      arr.push(member);
+    }
+
+    return arr;
+  };
+
+  Array.prototype.extend = function extend() {
+    for (member of arguments) {
+      this.push(member);
+    }
+  };
+
+  Array.prototype.rotateLeft = function rotateLeft(count = 1) {
+    var arr = Array.from(this);
+    for (var i = 0; i < count; i++) {
+      arr.push(arr.shift());
+    }
+
+    return arr;
+  };
+
+  Array.prototype.rotateRight = function rotateRight(count = 1) {
+    var arr = Array.from(this);
+    for (var i = 0; i < count; i++) {
+      arr.unshift(arr.pop());
+    }
+
+    return arr;
+  };
+})();
