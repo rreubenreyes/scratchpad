@@ -1,6 +1,6 @@
 module.exports = (() => {
   Array.fromRange = function fromRange(lower, upper) {
-    return Array.from(Array(upper - lower).keys()).map(key => key + lower);
+    return Array.from(Array(upper - lower + 1).keys()).map(key => key + lower);
   };
   Array.prototype.instancesOf = function instancesOf(member) {
     var deepEqual = function(a, b) {
