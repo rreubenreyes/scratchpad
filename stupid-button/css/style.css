@@ -1,0 +1,21 @@
+.wot {
+  position: absolute;
+  font-size: 70px;
+  width: 300%;
+  transform: translateX(75%);
+  transition: 7.5s;
+}
+.wot.active {
+  transform: translateX(-100%);
+}
+
+body {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow-x: visible;
+  width: 100vw;
+}
+
+/*# sourceMappingURL=style.css.map */

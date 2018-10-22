@@ -1,0 +1,12 @@
+.wot {
+  position: absolute;
+  font-size: 70px;
+  width: 300%;
+  left: 75%;
+  transition: left 8s;
+
+  &.active {
+    left: -100%;
+    // transition: 0s;
+  }
+}
