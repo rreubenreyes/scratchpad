@@ -1,0 +1,170 @@
+@keyframes slide {
+  25% {
+    transform: translateX(100%);
+    opacity: 0.5;
+  }
+  26% {
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+div#flex-wrapper {
+  background-image: url("https://res.cloudinary.com/try-coding-its-fun/image/upload/c_scale,h_1200,q_auto/v1540331264/10-14-Night.jpg");
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  transition: 1s ease;
+}
+
+div#flex-wrapper.windows {
+  background-image: url("https://res.cloudinary.com/try-coding-its-fun/image/upload/v1540331294/windows_xp_bliss.jpg");
+}
+
+div.switch-os {
+  display: flex;
+  color: #fcfcfc;
+  align-items: center;
+  position: absolute;
+  margin: 1rem;
+  right: 0;
+  transition: 0.15s ease;
+}
+div.switch-os.windows {
+  color: #333;
+}
+div.switch-os div.slider {
+  position: relative;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  width: 3.5rem;
+  height: 1.25rem;
+  margin: 0 0.5rem;
+  transition: 0.15s ease;
+}
+div.switch-os div.slider div.knob {
+  height: 100%;
+  width: 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  background-color: #fcfcfc;
+  transition: 0.15s ease;
+  margin-left: 0;
+}
+div.switch-os div.slider.windows {
+  background-color: #1eabf8;
+}
+div.switch-os div.slider.windows div.knob {
+  margin-left: calc(100% - 1.25rem);
+}
+
+div.window {
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  background-color: #fcfcfc;
+  border-radius: 5px;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 421;
+}
+div.window.windows {
+  animation: slide 0.75s;
+  border-radius: 0;
+}
+div.window__border {
+  background-image: linear-gradient(to right, #d4d4d4 5%, #d7d3d8 50%, #e6e3e8 100%);
+  height: 2rem;
+  display: flex;
+}
+div.window__border--button {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: transparent;
+  cursor: pointer;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.33rem;
+  align-self: center;
+}
+div.window__border--button:first-of-type {
+  background-color: #fc4848;
+}
+div.window__border--button:first-of-type:active {
+  background-color: #fb1616;
+}
+div.window__border--button:nth-of-type(2) {
+  background-color: #fdb024;
+}
+div.window__border--button:nth-of-type(2):active {
+  background-color: #ec9902;
+}
+div.window__border--button:last-of-type {
+  background-color: #2ac834;
+}
+div.window__border--button:last-of-type:active {
+  background-color: #219e29;
+}
+div.window__border--button:first-of-type {
+  margin-left: 0.5rem;
+}
+div.window__border--button:focus {
+  outline: none;
+}
+div.window__border.windows {
+  transform: rotate(180deg);
+  background-image: linear-gradient(to right, #bbb 0%, #bbb 100%);
+  overflow-y: hidden;
+}
+div.window__border.windows .window__border--button {
+  border-radius: 0px;
+  color: #333;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  min-width: 30px;
+  width: 7.5%;
+}
+div.window__border.windows .window__border--button:first-of-type {
+  background-color: #bbb;
+}
+div.window__border.windows .window__border--button:first-of-type:active {
+  background-color: #a2a2a2;
+}
+div.window__border.windows .window__border--button:nth-of-type(2) {
+  background-color: #bbb;
+}
+div.window__border.windows .window__border--button:nth-of-type(2):active {
+  background-color: #a2a2a2;
+}
+div.window__border.windows .window__border--button:last-of-type {
+  background-color: #bbb;
+}
+div.window__border.windows .window__border--button:last-of-type:active {
+  background-color: #a2a2a2;
+}
+div.window__border.windows .window__border--button:nth-child(2) {
+  margin-top: 0.2rem;
+}
+div.window__border.windows .window__border--button:last-child {
+  margin-top: 0.1rem;
+}
+
+/*# sourceMappingURL=style.css.map */
